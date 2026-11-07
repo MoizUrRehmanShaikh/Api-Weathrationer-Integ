@@ -1,0 +1,429 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #3685f5;
+    --primary-dark: #2469d8;
+    --background: #edf5ff;
+    --card: #ffffff;
+    --text: #1e293b;
+    --secondary: #718096;
+    --border: #e5edf7;
+    --shadow: 0 15px 45px rgba(46, 105, 170, 0.10);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #eaf4ff, #f7faff, #e5f0ff);
+    color: var(--text);
+}
+
+/* =================================
+   DARK MODE
+================================= */
+
+body.dark {
+    background: linear-gradient(135deg, #101827, #17253a, #0c1524);
+    color: #f1f5f9;
+}
+
+body.dark .app {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .header h1 {
+    color: #f8fafc;
+}
+
+body.dark .theme-toggle {
+    background: #334155;
+    border-color: #475569;
+}
+
+body.dark .theme-toggle:hover {
+    background: #475569;
+}
+
+body.dark .field span {
+    color: #cbd5e1;
+}
+
+body.dark .field input,
+body.dark .field select {
+    background: #0f172a;
+    border-color: #475569;
+    color: #f8fafc;
+}
+
+body.dark .field input::placeholder {
+    color: #94a3b8;
+}
+
+body.dark .weather-card {
+    background: linear-gradient(145deg, #26364d, #1e293b);
+    border-color: #475569;
+}
+
+body.dark .location,
+body.dark .detail strong {
+    color: #f8fafc;
+}
+
+body.dark .local-time,
+body.dark .condition,
+body.dark .status,
+body.dark .detail span,
+body.dark footer {
+    color: #cbd5e1;
+}
+
+body.dark .detail {
+    background: #26364d;
+    border-color: #475569;
+}
+
+body.dark .detail:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .temperature {
+    color: #60a5fa;
+}
+
+body.dark .search-form button[type="submit"] {
+    background: #3b82f6;
+}
+
+body.dark .search-form button[type="submit"]:hover {
+    background: #2563eb;
+}
+
+body.dark footer a {
+    color: #60a5fa;
+}
+
+body.dark .status.error {
+    color: #fca5a5;
+}
+
+/* ===== Main App ===== */
+.app {
+    width: 100%;
+    max-width: 650px;
+    padding: 35px;
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== Theme Button ===== */
+.theme-toggle {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: #f1f7ff;
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #e1efff;
+    transform: rotate(15deg);
+}
+
+/* ===== Header ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-right: 55px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.header-icon {
+    font-size: 45px;
+}
+
+/* ===== Search Form ===== */
+.search-form {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr auto;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.field input,
+.field select {
+    width: 100%;
+    height: 48px;
+    padding: 0 12px;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #f8fbff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(54, 133, 245, 0.10);
+}
+
+.search-form button[type="submit"] {
+    height: 48px;
+    padding: 0 17px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-form button[type="submit"]:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(54, 133, 245, 0.25);
+}
+
+/* ===== Status ===== */
+.status {
+    min-height: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--secondary);
+}
+
+/* ===== Weather Card ===== */
+.weather-card {
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: linear-gradient(145deg, #f5faff, #ffffff);
+    animation: fadeIn 0.5s ease;
+}
+
+.weather-card[hidden] {
+    display: none;
+}
+
+.location-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.local-time {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--secondary);
+}
+
+.weather-icon {
+    font-size: 52px;
+}
+
+/* ===== Temperature ===== */
+.temperature-row {
+    margin: 25px 0;
+}
+
+.temperature {
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -3px;
+    color: var(--primary);
+}
+
+.degree {
+    font-size: 35px;
+    vertical-align: top;
+}
+
+.condition {
+    margin-top: 5px;
+    color: var(--secondary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===== Weather Details ===== */
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 14px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: white;
+    transition: 0.3s ease;
+}
+
+.detail:hover {
+    transform: translateY(-3px);
+    border-color: #b9d6ff;
+    box-shadow: 0 5px 15px rgba(54, 133, 245, 0.08);
+}
+
+.detail span {
+    color: var(--secondary);
+    font-size: 11px;
+}
+
+.detail strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--secondary);
+}
+
+footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .app {
+        padding: 25px 20px;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-form button[type="submit"] {
+        grid-column: 1 / -1;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 400px) {
+    .app {
+        padding: 22px 15px;
+    }
+
+    .details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .temperature {
+        font-size: 55px;
+    }
+
+    .header-icon {
+        font-size: 35px;
+    }
+
+    .theme-toggle {
+        top: 20px;
+        right: 15px;
+        width: 36px;
+        height: 36px;
+    }
+}
